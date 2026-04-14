@@ -29,26 +29,6 @@ const AllBookings = () => {
   }, []);
 
   const handleDeleteBooking = async (id) => {
-    
-
-    const user = JSON.parse(localStorage.getItem("user"));
-    
-
-    const restrictedEmails = ["admin@gmail.com", "ta@gmail.com"];
-
-
-    if (user && restrictedEmails.includes(user.email)) {
-       Swal.fire({
-         title: "Action Restricted",
-         text: "This is a demo account. You can only view the data, but you cannot delete or modify it.",
-         icon: "error",
-         confirmButtonColor: "#EF4444",
-         background: "#111827",
-         color: "#fff",
-       });
-       return; 
-    }
-
     if (!window.confirm("Delete this booking record permanently?")) return;
 
     try {

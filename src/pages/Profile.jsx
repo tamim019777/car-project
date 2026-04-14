@@ -23,35 +23,12 @@ const Profile = ({ user }) => {
   const [showSecret, setShowSecret] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const checkDemoUser = () => {
-    const restrictedEmails = ["admin@gmail.com", "ta@gmail.com"];
-    if (user && restrictedEmails.includes(user.email)) {
-      Swal.fire({
-        title: "Action Restricted",
-        text: "This is a demo account. You cannot modify profile details or change roles.",
-        icon: "error",
-        confirmButtonColor: "#EF4444",
-        background: "#111827",
-        color: "#fff",
-      });
-      return true; 
-    }
-    return false; 
-  };
-
   const handleUpdateProfileClick = () => {
- 
-    if (checkDemoUser()) return;
-    
-
     navigate("/dashboard/update-profile");
   };
 
   const handleBecomeAdminClick = () => {
-
-     if (checkDemoUser()) return;
-
-     setShowAdminModal(true);
+    setShowAdminModal(true);
   };
 
   const handleBecomeAdmin = async () => {

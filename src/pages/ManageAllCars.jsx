@@ -40,29 +40,7 @@ const ManageAllCars = () => {
     fetchAllCars();
   }, []);
 
-
   const handleDelete = (id, name) => {
-    
-
-    const user = JSON.parse(localStorage.getItem("user"));
-    
-
-    const restrictedEmails = ["admin@gmail.com", "ta@gmail.com"];
-
-
-    if (user && restrictedEmails.includes(user.email)) {
-       Swal.fire({
-         title: "Action Restricted",
-         text: "This is a demo account. You can only view the data, but you cannot delete or modify it.",
-         icon: "error",
-         confirmButtonColor: "#EF4444",
-         background: "#111827",
-         color: "#fff",
-       });
-       return; 
-    }
-
-  
     Swal.fire({
       title: `Confirm Deletion?`,
       text: `You are about to remove "${name}" from the system. This action is irreversible.`,
